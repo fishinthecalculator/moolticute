@@ -127,6 +127,7 @@ void MPDeviceBleImpl::uploadBundle(QString filePath, const MessageHandlerCb &cb,
                             qWarning() << "Erase data flash failed";
                             return false;
                         }
+                        qInfo() << "Erase data flash SUCCESSFUL";
                         QVariantMap progress = {
                             {"total", 0},
                             {"current", 0},
@@ -155,6 +156,8 @@ void MPDeviceBleImpl::uploadBundle(QString filePath, const MessageHandlerCb &cb,
     });
 
     mpDev->enqueueAndRunJob(jobs);
+
+    qInfo() << "Jobs enqueued";
 }
 
 void MPDeviceBleImpl::fetchData(QString filePath, MPCmd::Command cmd)
