@@ -460,8 +460,10 @@ void MPDevice::sendDataDequeue()
 
 void MPDevice::runAndDequeueJobs()
 {
-    if (jobsQueue.isEmpty() || currentJobs)
-        qInfo() << "Empty jobs!"; return;
+    if (jobsQueue.isEmpty() || currentJobs) {
+        qInfo() << "Empty jobs!";
+        return;
+    }
 
     currentJobs = jobsQueue.dequeue();
 
