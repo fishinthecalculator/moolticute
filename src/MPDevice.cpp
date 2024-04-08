@@ -456,6 +456,11 @@ void MPDevice::sendDataDequeue()
 
 void MPDevice::runAndDequeueJobs()
 {
+    if (currentJobs) {
+        qInfo() << "currentJobs size: " << currentJobs->size();
+    } else {
+        qInfo() << "currentJobs is falsy";
+    }
     qInfo() << "Queue size inside runAndDequeueJobs: " << jobsQueue.size();
     if (jobsQueue.isEmpty() || currentJobs) {
         qInfo() << "Empty jobs!";
