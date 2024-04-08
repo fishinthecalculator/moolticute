@@ -213,6 +213,8 @@ void MPDevice::sendData(MPCmd::Command cmd, const QByteArray &data, MPCommandCb 
 
 void MPDevice::enqueueAndRunJob(AsyncJobs *jobs)
 {
+    int jobsSize = sizeof(jobs) / sizeof(AsyncJobs);
+    qInfo() << "Enqueueing " << jobsSize << " jobs.";
     jobsQueue.enqueue(jobs);
     runAndDequeueJobs();
 }
@@ -455,7 +457,7 @@ void MPDevice::sendDataDequeue()
 void MPDevice::runAndDequeueJobs()
 {
     if (jobsQueue.isEmpty() || currentJobs)
-        return;
+        qInfo() << "Empty jobs!"; return;
 
     currentJobs = jobsQueue.dequeue();
 
