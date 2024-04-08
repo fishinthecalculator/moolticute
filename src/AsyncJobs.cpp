@@ -69,7 +69,7 @@ AsyncJobs::~AsyncJobs()
 
 int AsyncJobs::size()
 {
-    return jobs->size();
+    return jobs.size();
 }
 
 void AsyncJobs::append(AsyncJob *j)
