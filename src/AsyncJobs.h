@@ -190,6 +190,8 @@ public:
     AsyncJobs(QString log = QString(), QString jid = QString(), QObject *parent = nullptr);
     virtual ~AsyncJobs();
 
+    int size();
+
     void append(AsyncJob *j);
     void prepend(AsyncJob *j);
     void insertAfter(AsyncJob *j, int pos);

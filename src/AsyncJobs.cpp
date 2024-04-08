@@ -67,6 +67,11 @@ AsyncJobs::~AsyncJobs()
     Common::releaseUid(jobsid);
 }
 
+int AsyncJobs::size()
+{
+    return jobs.size();
+}
+
 void AsyncJobs::append(AsyncJob *j)
 {
     //reparent object to handle jobs memory from AsyncJobs
