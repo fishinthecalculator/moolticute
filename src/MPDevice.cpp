@@ -463,7 +463,8 @@ void MPDevice::runAndDequeueJobs()
     }
     qInfo() << "Queue size inside runAndDequeueJobs: " << jobsQueue.size();
     if (jobsQueue.isEmpty() || currentJobs) {
-        qInfo() << "Empty jobs!";
+        if (jobsQueue.isEmpty()) qInfo() << "Empty jobsQueue!";
+        if (currentJobs) qInfo() << "currentJobs is not falsy and " << currentJobs->size() << " long.";
         return;
     }
 
