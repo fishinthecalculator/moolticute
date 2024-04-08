@@ -217,8 +217,8 @@ void MPDevice::enqueueAndRunJob(AsyncJobs *jobs)
     qInfo() << "sizeOfJobs " << sizeOfJobs;
     int sizeOfAsyncJobs = sizeof(AsyncJobs);
     qInfo() << "sizeOfAsyncJobs " << sizeOfAsyncJobs;
-    int jobsSize = sizeOfJobs / sizeOfAsyncJobs;
-    qInfo() << "Enqueueing " << jobsSize << " jobs.";
+    double jobsSize = sizeOfJobs / sizeOfAsyncJobs;
+    qInfo() << "Enqueueing " << jobsSize.size() << " jobs.";
     jobsQueue.enqueue(jobs);
     runAndDequeueJobs();
 }
