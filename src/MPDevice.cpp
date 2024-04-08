@@ -213,7 +213,11 @@ void MPDevice::sendData(MPCmd::Command cmd, const QByteArray &data, MPCommandCb 
 
 void MPDevice::enqueueAndRunJob(AsyncJobs *jobs)
 {
-    int jobsSize = sizeof(jobs) / sizeof(AsyncJobs);
+    int sizeOfJobs = sizeof(jobs);
+    qInfo() << "sizeOfJobs " << sizeOfJobs
+    int sizeOfAsyncJobs = sizeof(AsyncJobs);
+    qInfo() << "sizeOfAsyncJobs " << sizeOfAsyncJobs;
+    int jobsSize = sizeOfJobs / sizeOfAsyncJobs;
     qInfo() << "Enqueueing " << jobsSize << " jobs.";
     jobsQueue.enqueue(jobs);
     runAndDequeueJobs();
